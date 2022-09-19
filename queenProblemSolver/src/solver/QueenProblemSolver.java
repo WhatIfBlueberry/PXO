@@ -1,23 +1,21 @@
 package solver;
 
-import chessPieces.*;
-
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class QueenProblemSolver {
-
     private final Integer boardSize;
+    private final ChessPiece chessPiece;
     private final String unicode;
     private ArrayList<Point> coordinates;
     private final Scanner scanner = new Scanner(System.in);
 
     public QueenProblemSolver() {
-        ChessPiece chessPiece = gatherChessPieceInput();
+        this.chessPiece = gatherChessPieceInput();
         this.boardSize = gatherBoardSizeInput();
         this.unicode = chessPiece.getUnicode();
-        solve(chessPiece);
+        solve();
     }
 
     public Integer getBoardSize() {
@@ -32,8 +30,8 @@ public class QueenProblemSolver {
         return this.coordinates;
     }
 
-    private void solve(ChessPiece piece) {
-        this.coordinates = piece.solve(boardSize);
+    private void solve() {
+        this.coordinates = this.chessPiece.solve(boardSize);
     }
 
     private ChessPiece gatherChessPieceInput() {
