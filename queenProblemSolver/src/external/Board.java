@@ -23,7 +23,7 @@ public class Board extends JFrame {
     } // Board()
 
     public void display() {
-        setTitle("Queen Problem Solver");
+        setTitle("chessPieces.Queen Problem Solver");
         fillLabel();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -35,7 +35,7 @@ public class Board extends JFrame {
         int row = -1;
         for (int i = 0; i < labels.length; i++) {
             if (i % this.boardSize == 0) row++; // increment row number
-            labels[i].set(i, row);
+            labels[i].set(i, row, this.boardSize);
             contentPane.add(labels[i]);
         } // i
 

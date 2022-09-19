@@ -1,3 +1,5 @@
+package solver;
+
 import external.Board;
 
 public class Main {

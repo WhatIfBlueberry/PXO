@@ -1,19 +1,22 @@
+package solver;
+
+import chessPieces.*;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class QueenProblemSolver {
 
-    Integer boardSize;
-    String unicode;
-    ArrayList<Point> cords;
-
-    private Scanner scanner = new Scanner(System.in);
+    private final Integer boardSize;
+    private final String unicode;
+    private ArrayList<Point> cords;
+    private final Scanner scanner = new Scanner(System.in);
 
     public QueenProblemSolver() {
         ChessPiece chessPiece = gatherChessPieceAsEnum();
         this.boardSize = gatherBoardSizeAsInteger();
-        solve(chessPiece, boardSize);
+        solve(chessPiece);
         this.unicode = chessPiece.getUnicode();
     }
 
@@ -29,7 +32,7 @@ public class QueenProblemSolver {
         return this.cords;
     }
 
-    private void solve(ChessPiece piece, Integer boardSize) {
+    private void solve(ChessPiece piece) {
         SolveablePiece solveablePiece = findSolutionForPiece(piece);
         this.cords = solveablePiece.solve(boardSize);
     }
@@ -41,9 +44,12 @@ public class QueenProblemSolver {
             case QUEEN:
                 return new Queen();
             case ROOK:
+                return new Rook();
             case BISHOP:
             case KNIGHT:
+                return new Knight();
             case KING:
+                return new King();
             default:
                 throw new RuntimeException("Unknown Chess Piece");
         }
