@@ -1,19 +1,21 @@
 package external;
 
+import solver.ChessPiece;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Board extends JFrame {
     private final int boardSize;
-    private final ArrayList<Point> pieces;
+    private final ArrayList<Point> solutions;
     private final String unicode;
     private ChessLabel[] labels;
 
-    public Board(int boardSize, ArrayList<Point> pieces, String unicode) {
+    public Board(int boardSize, ArrayList<Point> solutions, ChessPiece chessPiece) {
         this.boardSize = boardSize;
-        this.pieces = pieces;
-        this.unicode = unicode;
+        this.solutions = solutions;
+        this.unicode = chessPiece.getUnicode();
         labels = new ChessLabel[this.boardSize * this.boardSize];
     }
 
@@ -44,7 +46,7 @@ public class Board extends JFrame {
         for (int pos = 0; pos < totalFields; pos++) {
             labels[pos] = new ChessLabel("");
         }
-        this.pieces.stream().map(this::parsePosition).forEach(pos -> labels[pos] = new ChessLabel(this.unicode));
+        this.solutions.stream().map(this::parsePosition).forEach(pos -> labels[pos] = new ChessLabel(this.unicode));
     }
 
     private int parsePosition(Point p) {

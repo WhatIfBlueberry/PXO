@@ -7,14 +7,12 @@ import java.util.Scanner;
 public class QueenProblemSolver {
     private final Integer boardSize;
     private final ChessPiece chessPiece;
-    private final String unicode;
     private ArrayList<Point> coordinates;
     private final Scanner scanner = new Scanner(System.in);
 
     public QueenProblemSolver() {
         this.chessPiece = gatherChessPieceInput();
         this.boardSize = gatherBoardSizeInput();
-        this.unicode = chessPiece.getUnicode();
         solve();
     }
 
@@ -22,8 +20,8 @@ public class QueenProblemSolver {
         return this.boardSize;
     }
 
-    public String getUnicode() {
-        return this.unicode;
+    public ChessPiece getChessPiece() {
+        return this.chessPiece;
     }
 
     public ArrayList<Point> getSolutions() {
