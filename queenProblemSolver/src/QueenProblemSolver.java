@@ -4,18 +4,29 @@ public class QueenProblemSolver {
 
     private Scanner scanner = new Scanner(System.in);
 
-    private ChessPiece chessPiece;
-    private Integer boardSize;
-
     public QueenProblemSolver() {
-        gatherUserInput();
-        System.out.println(this.chessPiece);
-        System.out.println(this.boardSize);
+        ChessPiece chessPiece = gatherChessPieceAsEnum();
+        Integer boardSize = gatherBoardSizeAsInteger();
+        solve(chessPiece, boardSize);
     }
 
-    private void gatherUserInput() {
-        this.chessPiece = gatherChessPieceAsEnum();
-        this.boardSize = gatherBoardSizeAsInteger();
+    private void solve(ChessPiece piece, Integer boardSize) {
+        SolveablePiece solveablePiece = findSolutionForPiece(piece);
+        solveablePiece.solve(boardSize);
+    }
+
+    private SolveablePiece findSolutionForPiece(ChessPiece piece) {
+        switch (piece) {
+            case PAWN:
+            case QUEEN:
+                return new Queen();
+            case ROOK:
+            case BISHOP:
+            case KNIGHT:
+            case KING:
+            default:
+                throw new RuntimeException("Unknown Chess Piece");
+        }
     }
 
     private ChessPiece gatherChessPieceAsEnum() {
