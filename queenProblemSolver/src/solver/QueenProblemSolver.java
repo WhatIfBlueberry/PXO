@@ -26,7 +26,7 @@ public class QueenProblemSolver {
         return this.unicode;
     }
 
-    public ArrayList<Point> getPoints() {
+    public ArrayList<Point> getSolutions() {
         return this.coordinates;
     }
 
