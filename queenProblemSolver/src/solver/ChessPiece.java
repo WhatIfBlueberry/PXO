@@ -1,8 +1,6 @@
 package solver;
 
 public enum ChessPiece {
-
-
     PAWN("\u2659"),
     QUEEN("\u2655"),
     ROOK("\u2656"),

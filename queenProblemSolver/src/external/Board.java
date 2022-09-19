@@ -9,10 +9,6 @@ public class Board extends JFrame {
     private final int boardSize;
     private final ArrayList<Point> pieces;
     private final String unicode;
-
-
-    //Initialise arrays to hold panels and images of the board
-
     private ChessLabel[] labels;
 
     public Board(int boardSize, ArrayList<Point> pieces, String unicode) {
@@ -20,7 +16,7 @@ public class Board extends JFrame {
         this.pieces = pieces;
         this.unicode = unicode;
         labels = new ChessLabel[this.boardSize * this.boardSize];
-    } // Board()
+    }
 
     public void display() {
         setTitle("chessPieces.Queen Problem Solver");
@@ -34,35 +30,25 @@ public class Board extends JFrame {
 
         int row = -1;
         for (int i = 0; i < labels.length; i++) {
-            if (i % this.boardSize == 0) row++; // increment row number
+            if (i % this.boardSize == 0) row++;
             labels[i].set(i, row, this.boardSize);
             contentPane.add(labels[i]);
-        } // i
+        }
 
         setSize(75 * this.boardSize, 75 * this.boardSize);
         setLocationRelativeTo(null);
         setVisible(true);
-    } // display()
+    }
 
     private void fillLabel() {
-        for (int i = 0; i < this.boardSize; i++) {
-            for (int j = 0; j < this.boardSize; j++) {
-                int labelPosSingle = parsePosition(i, j);
-                this.labels[labelPosSingle] = new ChessLabel("");
-                if (isOnPoint(i, j)) {
-                    this.labels[labelPosSingle] = new ChessLabel(this.unicode);
-                }
-            }
+        int totalFields = this.boardSize * this.boardSize;
+        for (int pos = 0; pos < totalFields; pos++) {
+            labels[pos] = new ChessLabel("");
         }
+        this.pieces.stream().map(this::parsePosition).forEach(pos -> labels[pos] = new ChessLabel(this.unicode));
     }
 
-    private int parsePosition(int i, int j) {
-        return ((i * this.boardSize) + j);
+    private int parsePosition(Point p) {
+        return ((p.x * this.boardSize) + p.y);
     }
-
-    private boolean isOnPoint(int i, int j) {
-        Point point = new Point(i, j);
-        return this.pieces.contains(point);
-    }
-
-} // class Board
+}
