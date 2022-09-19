@@ -1,23 +1,43 @@
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class QueenProblemSolver {
+
+    Integer boardSize;
+    String unicode;
+    ArrayList<Point> cords;
 
     private Scanner scanner = new Scanner(System.in);
 
     public QueenProblemSolver() {
         ChessPiece chessPiece = gatherChessPieceAsEnum();
-        Integer boardSize = gatherBoardSizeAsInteger();
+        this.boardSize = gatherBoardSizeAsInteger();
         solve(chessPiece, boardSize);
+        this.unicode = chessPiece.getUnicode();
+    }
+
+    public Integer getBoardSize() {
+        return this.boardSize;
+    }
+
+    public String getUnicode() {
+        return this.unicode;
+    }
+
+    public ArrayList<Point> getPoints() {
+        return this.cords;
     }
 
     private void solve(ChessPiece piece, Integer boardSize) {
         SolveablePiece solveablePiece = findSolutionForPiece(piece);
-        solveablePiece.solve(boardSize);
+        this.cords = solveablePiece.solve(boardSize);
     }
 
     private SolveablePiece findSolutionForPiece(ChessPiece piece) {
         switch (piece) {
             case PAWN:
+                return new Pawn();
             case QUEEN:
                 return new Queen();
             case ROOK:

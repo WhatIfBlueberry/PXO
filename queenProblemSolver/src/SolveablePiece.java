@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.util.ArrayList;
+
 public interface SolveablePiece {
-    public int solve(Integer boardSize);
+    public ArrayList<Point> solve(Integer boardSize);
 }
