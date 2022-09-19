@@ -20,21 +20,24 @@ public class Board extends JFrame {
     }
 
     public void display() {
-        setTitle("QueenProblem-Solver");
+        setTitle("Queen Problem Solver");
         fillLabel();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         Container contentPane = getContentPane();
-        GridLayout gridLayout = new GridLayout(this.boardSize, this.boardSize);
-        contentPane.setLayout(gridLayout);
+        contentPane.setLayout(new GridLayout(this.boardSize, this.boardSize));
+        addLabelsToContentPane(contentPane);
+        setSize(75 * this.boardSize, 75 * this.boardSize);
+        setLocationRelativeTo(null);
+        setVisible(true);
+    }
+
+    private void addLabelsToContentPane(Container contentPane) {
         int row = -1;
         for (int i = 0; i < labels.length; i++) {
             if (i % this.boardSize == 0) row++;
             labels[i].set(i, row, this.boardSize);
             contentPane.add(labels[i]);
         }
-        setSize(75 * this.boardSize, 75 * this.boardSize);
-        setLocationRelativeTo(null);
-        setVisible(true);
     }
 
     private void fillLabel() {
@@ -42,10 +45,15 @@ public class Board extends JFrame {
         for (int pos = 0; pos < totalFields; pos++) {
             labels[pos] = new ChessLabel("");
         }
-        this.solutions.stream().map(this::parsePosition).forEach(pos -> labels[pos] = new ChessLabel(this.unicode));
+        this.solutions.stream().map(this::convertPointToLabelPosition).forEach(pos -> labels[pos] = new ChessLabel(this.unicode));
     }
 
-    private int parsePosition(Point p) {
+    /**
+     * @param p one of the solution-pieces
+     * @return
+     * returns position in respect to the labels-array
+     */
+    private int convertPointToLabelPosition(Point p) {
         return ((p.x * this.boardSize) + p.y);
     }
 }
