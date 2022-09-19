@@ -10,14 +10,14 @@ public class QueenProblemSolver {
 
     private final Integer boardSize;
     private final String unicode;
-    private ArrayList<Point> cords;
+    private ArrayList<Point> coordinates;
     private final Scanner scanner = new Scanner(System.in);
 
     public QueenProblemSolver() {
-        ChessPiece chessPiece = gatherChessPieceAsEnum();
-        this.boardSize = gatherBoardSizeAsInteger();
-        solve(chessPiece);
+        ChessPiece chessPiece = gatherChessPieceInput();
+        this.boardSize = gatherBoardSizeInput();
         this.unicode = chessPiece.getUnicode();
+        solve(chessPiece);
     }
 
     public Integer getBoardSize() {
@@ -29,15 +29,15 @@ public class QueenProblemSolver {
     }
 
     public ArrayList<Point> getPoints() {
-        return this.cords;
+        return this.coordinates;
     }
 
     private void solve(ChessPiece piece) {
-        SolveablePiece solveablePiece = findSolutionForPiece(piece);
-        this.cords = solveablePiece.solve(boardSize);
+        SolveablePiece solveablePiece = findSolutionModelForPiece(piece);
+        this.coordinates = solveablePiece.solve(boardSize);
     }
 
-    private SolveablePiece findSolutionForPiece(ChessPiece piece) {
+    private SolveablePiece findSolutionModelForPiece(ChessPiece piece) {
         switch (piece) {
             case PAWN:
                 return new Pawn();
@@ -46,6 +46,7 @@ public class QueenProblemSolver {
             case ROOK:
                 return new Rook();
             case BISHOP:
+                return new Bishop();
             case KNIGHT:
                 return new Knight();
             case KING:
@@ -55,24 +56,24 @@ public class QueenProblemSolver {
         }
     }
 
-    private ChessPiece gatherChessPieceAsEnum() {
+    private ChessPiece gatherChessPieceInput() {
         System.out.print("Enter Chess Piece: ");
         try {
             String chessPiece = scanner.nextLine().toUpperCase();
             return ChessPiece.valueOf(chessPiece);
         } catch (Exception e) {
             System.out.println("Invalid Chess Piece, please use the english term");
-            return gatherChessPieceAsEnum();
+            return gatherChessPieceInput();
         }
     }
 
-    private Integer gatherBoardSizeAsInteger() {
+    private Integer gatherBoardSizeInput() {
         System.out.print("Enter Board size: ");
         try {
             return Integer.parseInt(scanner.nextLine());
         } catch (Exception e) {
             System.out.println("Invalid Board size, please enter valid Integer");
-            return gatherBoardSizeAsInteger();
+            return gatherBoardSizeInput();
         }
     }
 }
