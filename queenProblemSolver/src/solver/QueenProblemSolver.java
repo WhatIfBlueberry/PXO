@@ -33,27 +33,7 @@ public class QueenProblemSolver {
     }
 
     private void solve(ChessPiece piece) {
-        SolveablePiece solveablePiece = findSolutionModelForPiece(piece);
-        this.coordinates = solveablePiece.solve(boardSize);
-    }
-
-    private SolveablePiece findSolutionModelForPiece(ChessPiece piece) {
-        switch (piece) {
-            case PAWN:
-                return new Pawn();
-            case QUEEN:
-                return new Queen();
-            case ROOK:
-                return new Rook();
-            case BISHOP:
-                return new Bishop();
-            case KNIGHT:
-                return new Knight();
-            case KING:
-                return new King();
-            default:
-                throw new RuntimeException("Unknown Chess Piece");
-        }
+        this.coordinates = piece.solve(boardSize);
     }
 
     private ChessPiece gatherChessPieceInput() {

@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-
 public class Board extends JFrame {
     private final int boardSize;
     private final ArrayList<Point> pieces;
@@ -19,7 +18,7 @@ public class Board extends JFrame {
     }
 
     public void display() {
-        setTitle("chessPieces.Queen Problem Solver");
+        setTitle("QueenProblem-Solver");
         fillLabel();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

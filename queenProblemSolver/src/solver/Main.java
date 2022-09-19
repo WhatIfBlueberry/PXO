@@ -8,6 +8,4 @@ public class Main {
         Board board = new Board(solver.getBoardSize(), solver.getPoints(), solver.getUnicode());
         board.display();
     }
-
-
 }
