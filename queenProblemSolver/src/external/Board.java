@@ -22,20 +22,16 @@ public class Board extends JFrame {
     public void display() {
         setTitle("QueenProblem-Solver");
         fillLabel();
-
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
         Container contentPane = getContentPane();
         GridLayout gridLayout = new GridLayout(this.boardSize, this.boardSize);
         contentPane.setLayout(gridLayout);
-
         int row = -1;
         for (int i = 0; i < labels.length; i++) {
             if (i % this.boardSize == 0) row++;
             labels[i].set(i, row, this.boardSize);
             contentPane.add(labels[i]);
         }
-
         setSize(75 * this.boardSize, 75 * this.boardSize);
         setLocationRelativeTo(null);
         setVisible(true);

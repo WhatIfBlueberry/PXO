@@ -6,6 +6,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public enum ChessPiece {
+
     PAWN("\u2659", new Pawn()),
     QUEEN("\u2655", new Queen()),
     ROOK("\u2656", new Rook()),
@@ -19,7 +20,6 @@ public enum ChessPiece {
     ChessPiece(String unicode, SolveablePiece solveablePiece) {
         this.unicode = unicode;
         this.solveablePiece = solveablePiece;
-
     }
 
     public ArrayList<Point> solve(int boardSize) {

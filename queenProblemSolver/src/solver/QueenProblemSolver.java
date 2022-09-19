@@ -15,19 +15,15 @@ public class QueenProblemSolver {
         this.boardSize = gatherBoardSizeInput();
         solve();
     }
-
     public Integer getBoardSize() {
         return this.boardSize;
     }
-
     public ChessPiece getChessPiece() {
         return this.chessPiece;
     }
-
     public ArrayList<Point> getSolutions() {
         return this.coordinates;
     }
-
     private void solve() {
         this.coordinates = this.chessPiece.solve(boardSize);
     }
