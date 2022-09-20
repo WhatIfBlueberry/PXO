@@ -1,21 +1,20 @@
 package solveableChessPieces;
 
-import java.awt.*;
-import java.util.ArrayList;
+public class King extends GenericChessPiece {
 
-public class King implements SolveablePiece {
     @Override
-    public ArrayList<Point> solve(Integer boardSize) {
-        ArrayList<Point> ret = new ArrayList<>();
-        for (int x = 0; x < boardSize; x++) {
-            for (int y = 0; y < boardSize; y++) {
-                if (y % 2 == 0) {
-                    if (x % 2 == 0) {
-                        ret.add(new Point(x, y));
+    protected boolean isSafe(int[][] board, int row, int col) {
+        for (int x = -1; x <= 1; x++) {
+            if (!(row - x < 0 || row - x >= board.length)) {
+                for (int y = -1; y <= 1; y++) {
+                    if (!(col - y < 0 || col - y >= board.length) && (x != 0 && y != 0)) {
+                        if (board[row - x][col - y] == 1) {
+                            return false;
+                        }
                     }
                 }
             }
         }
-        return ret;
+        return true;
     }
 }

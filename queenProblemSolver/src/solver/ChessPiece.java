@@ -15,15 +15,15 @@ public enum ChessPiece {
     KING("\u2654", new King());
 
     private String unicode;
-    private SolveablePiece solveablePiece;
+    private GenericChessPiece genericChessPiece;
 
-    ChessPiece(String unicode, SolveablePiece solveablePiece) {
+    ChessPiece(String unicode, GenericChessPiece genericChessPiece) {
         this.unicode = unicode;
-        this.solveablePiece = solveablePiece;
+        this.genericChessPiece = genericChessPiece;
     }
 
     public ArrayList<Point> solve(int boardSize) {
-        return this.solveablePiece.solve(boardSize);
+        return this.genericChessPiece.solve(boardSize);
     }
 
     public String getUnicode() {
