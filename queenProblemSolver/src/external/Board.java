@@ -12,10 +12,10 @@ public class Board extends JFrame {
     private final String unicode;
     private ChessLabel[] labels;
 
-    public Board(int boardSize, ArrayList<Point> solutions, ChessPiece chessPiece) {
+    public Board(int boardSize, ChessPiece chessPiece, ArrayList<Point> solutions) {
         this.boardSize = boardSize;
-        this.solutions = solutions;
         this.unicode = chessPiece.getUnicode();
+        this.solutions = solutions;
         labels = new ChessLabel[this.boardSize * this.boardSize];
     }
 
@@ -50,8 +50,7 @@ public class Board extends JFrame {
 
     /**
      * @param p one of the solution-pieces
-     * @return
-     * returns position in respect to the labels-array
+     * @return returns position in respect to the labels-array
      */
     private int convertPointToLabelPosition(Point p) {
         return ((p.x * this.boardSize) + p.y);
