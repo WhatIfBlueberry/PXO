@@ -1,9 +1,12 @@
-package chessPieces;
+package solveableChessPieces;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public class Queen implements SolveablePiece {
+
+    ArrayList<Point> ret = new ArrayList<>();
+
     @Override
     public ArrayList<Point> solve(Integer boardSize) {
         var ret = new ArrayList<Point>();

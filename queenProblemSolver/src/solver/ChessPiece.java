@@ -1,6 +1,6 @@
 package solver;
 
-import chessPieces.*;
+import solveableChessPieces.*;
 
 import java.awt.*;
 import java.util.ArrayList;
