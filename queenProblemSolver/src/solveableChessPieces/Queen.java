@@ -47,22 +47,39 @@ public class Queen implements SolveablePiece {
 
     //is it safe to place queen at row, col
     private static boolean isSafe(int[][] board, int row, int col) {
-        int i, j;
-        for (i = 0; i < col; i++) {
-            if (board[row][i] == 1) {
-                return false;
-            }
-        }
-        for (i = row, j = col; i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] == 1) {
-                return false;
-            }
-        }
-        for (i = row, j = col; j >= 0 && i < board.length; i++, j--) {
-            if (board[i][j] == 1) {
-                return false;
-            }
-        }
+        // check if row is fine till col
+        if (straightLineOccupied(board, row, col)) return false;
+        // check all possible diagonal fields col right to row left
+        if (checkLeftDiagOccupied(board, row, col)) return false;
+        // check all possible diagonal fields from top right to bottom left
+        if (checkRightDiagOccupied(board, row, col)) return false;
         return true;
+    }
+
+    private static boolean checkRightDiagOccupied(int[][] board, int row, int col) {
+        for (int i = row, j = col; j >= 0 && i < board.length; i++, j--) {
+            if (board[i][j] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean checkLeftDiagOccupied(int[][] board, int row, int col) {
+        for (int i = row, j = col; i >= 0 && j >= 0; i--, j--) {
+            if (board[i][j] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean straightLineOccupied(int[][] board, int row, int col) {
+        for (int i = 0; i < col; i++) {
+            if (board[row][i] == 1) {
+                return true;
+            }
+        }
+        return false;
     }
 }
