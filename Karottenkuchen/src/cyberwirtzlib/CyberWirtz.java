@@ -9,7 +9,7 @@ package cyberwirtzlib;
 public abstract class CyberWirtz {
 
     /**
-     * allows to add any number of Matrices
+     * allows to add any number of Matrices. First two to are added normally, all the others via recursion.
      * @param mat1 First Matrix
      * @param mat2 Second Matrix
      * @param args Additional Matrices
@@ -20,7 +20,7 @@ public abstract class CyberWirtz {
     public abstract Matrix add(Matrix mat1, Matrix mat2, Matrix... args);
 
     /**
-     * allows to multiply any number of Matrices
+     * allows to multiply any number of Matrices. First two to are multiplied normally, all the others via recursion.
      * @param mat1 First Matrix
      * @param mat2 Second Matrix
      * @param args Additional Matrices
