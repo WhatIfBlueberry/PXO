@@ -40,12 +40,20 @@ public abstract class CyberWirtz {
         return multiply(vector.transpose(), mat, vector);
     }
 
+    /**
+     * checks row and column size. To be able to add them, both need to be equal.
+     * @param mat1
+     * @param mat2
+     */
     protected boolean matricesCanBeAdded(Matrix mat1, Matrix mat2) {
-        boolean invalidRowSize = mat1.getRowSize() != mat2.getRowSize();
-        boolean invalidColumnSize = !mat1.getAllColumnSizes().equals(mat2.getAllColumnSizes());
-        if (invalidRowSize || invalidColumnSize) {
-            return false;
-        }
-        return true;
+        boolean validRowSize = mat1.getRowSize() == mat2.getRowSize();
+        boolean validColumnSize = mat1.getAllColumnSizes().equals(mat2.getAllColumnSizes());
+        return validRowSize && validColumnSize;
+    }
+
+    protected boolean matricesCanBeMultiplied(Matrix mat1, Matrix mat2) {
+        boolean rowAndColumnHaveValidDimension = mat1.getRowSize() == mat2.getFirstColumnSize();
+        boolean columnAndRowHaveValidDimension = mat1.getFirstColumnSize() == mat2.getRowSize();
+        return rowAndColumnHaveValidDimension || columnAndRowHaveValidDimension;
     }
 }
