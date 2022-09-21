@@ -1,4 +1,4 @@
-package CyberWirtzLib;
+package cyberwirtzlib;
 
 public class ComplexCyberWirtz extends CyberWirtz {
 

@@ -1,4 +1,4 @@
-package CyberWirtzLib;
+package cyberwirtzlib;
 
 public enum Fields {
     REAL(new RealCyberWirtz()),

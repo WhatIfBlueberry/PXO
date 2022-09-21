@@ -1,6 +1,7 @@
-package CyberWirtzLib;
+package cyberwirtzlib;
 
 /**
+ * In memory of Prof. Dr. Wirtz LA1
  * {@link #add(Matrix, Matrix, Matrix...) adding matrices}
  * {@link #multiply(Matrix, Matrix, Matrix...) multiplying matrices}
  * {@link #calculateExpectedValue(Matrix, Matrix) calculating the expected value}
@@ -26,6 +27,11 @@ public abstract class CyberWirtz {
      */
     public abstract Matrix multiply(Matrix mat1, Matrix mat2, Matrix... args);
 
+    /**
+     * @param mat First Matrix
+     * @param vector Second Vector
+     * @return returns expected value as scalar. Applies V'MV
+     */
     public Matrix calculateExpectedValue(Matrix mat, Matrix vector) {
         return multiply(vector.transpose(), mat, vector);
     }

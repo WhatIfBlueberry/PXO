@@ -1,4 +1,4 @@
-package CyberWirtzLib;
+package cyberwirtzlib;
 
 import java.util.Arrays;
 

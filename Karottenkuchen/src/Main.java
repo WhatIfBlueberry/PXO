@@ -1,7 +1,7 @@
-import CyberWirtzLib.CyberWirtz;
-import CyberWirtzLib.CyberWirtzFactory;
-import CyberWirtzLib.Fields;
-import CyberWirtzLib.Matrix;
+import cyberwirtzlib.CyberWirtz;
+import cyberwirtzlib.CyberWirtzFactory;
+import cyberwirtzlib.Fields;
+import cyberwirtzlib.Matrix;
 
 
 public class Main {
