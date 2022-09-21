@@ -71,6 +71,5 @@ public abstract class GenericChessPiece {
         return false;
     }
 
-    //is it safe to place queen at row, col
     protected abstract boolean isSafe(int[][] board, int row, int col);
 }
