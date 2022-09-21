@@ -51,6 +51,11 @@ public abstract class CyberWirtz {
         return validRowSize && validColumnSize;
     }
 
+    /**
+     * checks row and column size. To be able to multiply, row / column or column / row need to match.
+     * @param mat1
+     * @param mat2
+     */
     protected boolean matricesCanBeMultiplied(Matrix mat1, Matrix mat2) {
         boolean rowAndColumnHaveValidDimension = mat1.getRowSize() == mat2.getFirstColumnSize();
         boolean columnAndRowHaveValidDimension = mat1.getFirstColumnSize() == mat2.getRowSize();
