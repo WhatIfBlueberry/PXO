@@ -1,6 +1,8 @@
 package cyberwirtzlib;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Matrix {
     double[][] matrix;
@@ -22,13 +24,21 @@ public class Matrix {
         return matrix.length;
     }
 
-    public int getColumnSize() {
+    public int getFirstColumnSize() {
         return matrix[0].length;
     }
 
+    public List<Integer> getAllColumnSizes() {
+        List<Integer> ret = new ArrayList<>();
+        for (int i = 0; i < matrix.length; i++) {
+            ret.add(matrix[0].length);
+        }
+        return ret;
+    }
+
     public Matrix transpose() {
-        double[][] ret = new double[this.getColumnSize()][this.getRowSize()];
-        for (int column = 0; column < getColumnSize(); column++) {
+        double[][] ret = new double[this.getFirstColumnSize()][this.getRowSize()];
+        for (int column = 0; column < getFirstColumnSize(); column++) {
             for (int row = 0; row < getRowSize(); row++) {
                 ret[column][row] = this.matrix[row][column];
             }

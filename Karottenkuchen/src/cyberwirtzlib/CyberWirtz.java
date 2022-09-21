@@ -40,7 +40,7 @@ public abstract class CyberWirtz {
 
     protected boolean matricesCanBeAdded(Matrix mat1, Matrix mat2) {
         boolean invalidRowSize = mat1.getRowSize() != mat2.getRowSize();
-        boolean invalidColumnSize = mat1.getColumnSize() != mat2.getColumnSize();
+        boolean invalidColumnSize = !mat1.getAllColumnSizes().equals(mat2.getAllColumnSizes());
         if (invalidRowSize || invalidColumnSize) {
             return false;
         }

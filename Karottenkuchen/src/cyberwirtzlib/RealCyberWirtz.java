@@ -10,7 +10,7 @@ public class RealCyberWirtz extends CyberWirtz {
             throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
         }
         int rowSize = mat1.getRowSize();
-        int columnSize = mat1.getColumnSize();
+        int columnSize = mat1.getFirstColumnSize();
         double[][] ret = new double[rowSize][columnSize];
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
