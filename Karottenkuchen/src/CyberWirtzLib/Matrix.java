@@ -1,5 +1,7 @@
 package CyberWirtzLib;
 
+import java.util.Arrays;
+
 public class Matrix {
     double[][] matrix;
 
@@ -7,8 +9,17 @@ public class Matrix {
         this.matrix = matrix;
     }
 
-    public int getRowSize() { return matrix.length; }
-    public int getColumnSize() { return matrix[0].length; }
+    public double manipulate(int i, int j) {
+        return this.matrix[i][j];
+    }
+
+    public int getRowSize() {
+        return matrix.length;
+    }
+
+    public int getColumnSize() {
+        return matrix[0].length;
+    }
 
     public Matrix transpose() {
         double[][] ret = new double[this.getColumnSize()][this.getRowSize()];
@@ -18,5 +29,10 @@ public class Matrix {
             }
         }
         return new Matrix(ret);
+    }
+
+    @Override
+    public String toString() {
+        return Arrays.deepToString(this.matrix);
     }
 }

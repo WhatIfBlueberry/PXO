@@ -5,6 +5,7 @@ public enum Fields {
     COMPLEX(new ComplexCyberWirtz());
 
     CyberWirtz cyberWirtz;
+
     Fields(CyberWirtz cyberWirtz) {
         this.cyberWirtz = cyberWirtz;
     }

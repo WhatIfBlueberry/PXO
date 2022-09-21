@@ -1,6 +1,6 @@
 package CyberWirtzLib;
 
-public class ComplexCyberWirtz extends CyberWirtz{
+public class ComplexCyberWirtz extends CyberWirtz {
 
     @Override
     public Matrix add(Matrix mat1, Matrix mat2, Matrix... args) {
