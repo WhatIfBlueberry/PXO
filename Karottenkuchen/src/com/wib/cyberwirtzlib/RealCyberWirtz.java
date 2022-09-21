@@ -1,14 +1,17 @@
 package com.wib.cyberwirtzlib;
 
 import com.wib.cyberwirtzlib.math.Matrix;
+import com.wib.cyberwirtzlib.math.iMatrix;
 
 import java.util.Arrays;
 
 public class RealCyberWirtz extends CyberWirtz {
 
     @Override
-    public Matrix add(Matrix mat1, Matrix mat2, Matrix... args) {
-        if (!matricesCanBeAdded(mat1, mat2)) {
+    public iMatrix add(iMatrix m1, iMatrix m2, iMatrix... args) {
+        Matrix mat1 = ((Matrix) m1);
+        Matrix mat2 = ((Matrix) m2);
+        if (!matricesCanBeAdded(m1, m2)) {
             throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
         }
         int rowSize = mat1.getRowSize();
@@ -27,7 +30,7 @@ public class RealCyberWirtz extends CyberWirtz {
     }
 
     @Override
-    public Matrix multiply(Matrix mat1, Matrix mat2, Matrix... args) {
+    public iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
         return null;
     }
 }
