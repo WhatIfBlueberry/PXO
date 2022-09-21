@@ -1,4 +1,4 @@
-package cyberwirtzlib.math;
+package com.wib.cyberwirtzlib.math;
 
 /**
  * partial credit to:

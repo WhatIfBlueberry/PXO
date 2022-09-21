@@ -1,6 +1,6 @@
-package cyberwirtzlib;
+package com.wib.cyberwirtzlib;
 
-import cyberwirtzlib.math.Matrix;
+import com.wib.cyberwirtzlib.math.Matrix;
 
 public class ComplexCyberWirtz extends CyberWirtz {
 

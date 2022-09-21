@@ -1,6 +1,6 @@
-package cyberwirtzlib;
+package com.wib.cyberwirtzlib;
 
-import cyberwirtzlib.math.Matrix;
+import com.wib.cyberwirtzlib.math.Matrix;
 
 import java.util.Arrays;
 
@@ -13,7 +13,7 @@ public class RealCyberWirtz extends CyberWirtz {
         }
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
-        double[][] ret = new double[rowSize][columnSize];
+        Double[][] ret = new Double[rowSize][columnSize];
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
                 ret[row][column] = mat1.manipulate(row, column) + mat2.manipulate(row, column);

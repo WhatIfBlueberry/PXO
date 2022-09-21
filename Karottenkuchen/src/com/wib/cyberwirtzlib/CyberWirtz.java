@@ -1,6 +1,6 @@
-package cyberwirtzlib;
+package com.wib.cyberwirtzlib;
 
-import cyberwirtzlib.math.Matrix;
+import com.wib.cyberwirtzlib.math.Matrix;
 
 /**
  * In memory of Prof. Dr. Wirtz LA1

@@ -1,6 +1,6 @@
-package cyberwirtzlib;
+package com.wib.cyberwirtzlib;
 
-import cyberwirtzlib.math.Fields;
+import com.wib.cyberwirtzlib.math.Fields;
 
 public class CyberWirtzFactory {
 
