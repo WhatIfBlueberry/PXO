@@ -1,6 +1,6 @@
 package cyberwirtzlib;
 
-import java.util.List;
+import cyberwirtzlib.math.Matrix;
 
 /**
  * In memory of Prof. Dr. Wirtz LA1

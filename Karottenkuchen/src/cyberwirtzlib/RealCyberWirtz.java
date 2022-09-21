@@ -1,5 +1,7 @@
 package cyberwirtzlib;
 
+import cyberwirtzlib.math.Matrix;
+
 import java.util.Arrays;
 
 public class RealCyberWirtz extends CyberWirtz {

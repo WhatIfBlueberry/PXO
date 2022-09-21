@@ -1,4 +1,8 @@
-package cyberwirtzlib;
+package cyberwirtzlib.math;
+
+import cyberwirtzlib.ComplexCyberWirtz;
+import cyberwirtzlib.CyberWirtz;
+import cyberwirtzlib.RealCyberWirtz;
 
 public enum Fields {
     REAL(new RealCyberWirtz()),

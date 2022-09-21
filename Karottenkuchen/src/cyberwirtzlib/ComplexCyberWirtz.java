@@ -1,5 +1,7 @@
 package cyberwirtzlib;
 
+import cyberwirtzlib.math.Matrix;
+
 public class ComplexCyberWirtz extends CyberWirtz {
 
     @Override
