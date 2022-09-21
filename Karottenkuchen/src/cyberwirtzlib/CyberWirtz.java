@@ -1,5 +1,7 @@
 package cyberwirtzlib;
 
+import java.util.List;
+
 /**
  * In memory of Prof. Dr. Wirtz LA1
  * {@link #add(Matrix, Matrix, Matrix...) adding matrices}

@@ -31,7 +31,7 @@ public class Matrix {
     public List<Integer> getAllColumnSizes() {
         List<Integer> ret = new ArrayList<>();
         for (int i = 0; i < matrix.length; i++) {
-            ret.add(matrix[0].length);
+            ret.add(matrix[i].length);
         }
         return ret;
     }
