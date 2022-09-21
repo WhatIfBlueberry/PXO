@@ -28,9 +28,9 @@ public class Matrix {
 
     public Matrix transpose() {
         double[][] ret = new double[this.getColumnSize()][this.getRowSize()];
-        for (int i = 0; i < getColumnSize(); i++) {
-            for (int j = 0; j < getRowSize(); j++) {
-                ret[i][j] = this.matrix[j][i];
+        for (int column = 0; column < getColumnSize(); column++) {
+            for (int row = 0; row < getRowSize(); row++) {
+                ret[column][row] = this.matrix[row][column];
             }
         }
         return new Matrix(ret);

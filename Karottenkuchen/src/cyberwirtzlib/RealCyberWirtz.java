@@ -1,5 +1,7 @@
 package cyberwirtzlib;
 
+import java.util.Arrays;
+
 public class RealCyberWirtz extends CyberWirtz {
 
     @Override
@@ -14,6 +16,10 @@ public class RealCyberWirtz extends CyberWirtz {
             for (int column = 0; column < columnSize; column++) {
                 ret[row][column] = mat1.manipulate(row, column) + mat2.manipulate(row, column);
             }
+        }
+        boolean argumentsLeft = args.length > 0;
+        if (argumentsLeft) {
+            return add(new Matrix(ret), args[0], Arrays.copyOfRange(args, 1, args.length));
         }
         return new Matrix(ret);
     }
