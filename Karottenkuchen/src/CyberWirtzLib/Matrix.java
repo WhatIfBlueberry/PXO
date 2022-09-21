@@ -9,8 +9,13 @@ public class Matrix {
         this.matrix = matrix;
     }
 
-    public double manipulate(int i, int j) {
-        return this.matrix[i][j];
+    /**
+     * @param row
+     * @param column
+     * @return return contents of matrix at row / column
+     */
+    public double manipulate(int row, int column) {
+        return this.matrix[row][column];
     }
 
     public int getRowSize() {
