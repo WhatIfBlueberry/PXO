@@ -12,8 +12,16 @@ public class ComplexMatrix implements iMatrix {
         this.matrix = matrix;
     }
 
+    public ComplexMatrix(int row, int col, boolean rand) {
+        super();
+        if (rand) {
+            fillMatrixRandom(row, col);
+        }
+    }
+
     public ComplexMatrix(int row, int col) {
-        fillMatrixRandom(row, col);
+        this.matrix = new ComplexNumber[row][col];
+        fillMatrixZeroes(row, col);
     }
 
     private void fillMatrixRandom(int rowInput, int colInput) {
@@ -21,6 +29,15 @@ public class ComplexMatrix implements iMatrix {
         for (int row = 0; row < rowInput; row++) {
             for (int col = 0; col < colInput; col++) {
                 this.matrix[row][col] = new ComplexNumber(Math.random(), Math.random());
+            }
+        }
+    }
+
+    private void fillMatrixZeroes(int rowInput, int colInput) {
+        this.matrix = new ComplexNumber[rowInput][colInput];
+        for (int row = 0; row < rowInput; row++) {
+            for (int col = 0; col < colInput; col++) {
+                this.matrix[row][col] = new ComplexNumber(0.0,0.0);
             }
         }
     }

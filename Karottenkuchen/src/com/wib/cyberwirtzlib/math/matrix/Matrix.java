@@ -22,7 +22,7 @@ public class Matrix implements iMatrix {
         fillMatrixZeroes(row, col);
     }
 
-    protected void fillMatrixRandom(int rowInput, int colInput) {
+    private void fillMatrixRandom(int rowInput, int colInput) {
         this.matrix = new Double[rowInput][colInput];
         for (int row = 0; row < rowInput; row++) {
             for (int col = 0; col < colInput; col++) {
@@ -31,7 +31,7 @@ public class Matrix implements iMatrix {
         }
     }
 
-    protected void fillMatrixZeroes(int rowInput, int colInput) {
+    private void fillMatrixZeroes(int rowInput, int colInput) {
         this.matrix = new Double[rowInput][colInput];
         for (int row = 0; row < rowInput; row++) {
             for (int col = 0; col < colInput; col++) {
@@ -41,11 +41,6 @@ public class Matrix implements iMatrix {
     }
 
     @Override
-    /**
-     * @param row
-     * @param column
-     * @return return contents of matrix at row / column
-     */
     public Double getCell(int row, int column) {
         return this.matrix[row][column];
     }

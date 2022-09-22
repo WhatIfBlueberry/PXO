@@ -25,11 +25,21 @@ public class ComplexNumber {
     }
 
     public ComplexNumber multiplyComp(ComplexNumber num) {
-        ComplexNumber num1 = new ComplexNumber(real * num.real - img * num.img, real * num.img + img * num.real);
+        ComplexNumber num1 = new ComplexNumber(getRealRounded(num), getImgRounded(num));
         return num1;
     }
 
-    boolean equals(ComplexNumber num) {
+    private double getImgRounded(ComplexNumber num) {
+        double value = real * num.img + img * num.real;
+        return (double)Math.round(value * 100000d) / 100000d;
+    }
+
+    private double getRealRounded(ComplexNumber num) {
+        double value = real * num.real - img * num.img;
+        return (double)Math.round(value * 100000d) / 100000d;
+    }
+
+    public boolean equals(ComplexNumber num) {
         ComplexNumber num1 = new ComplexNumber(real, img);
         if (num.real == num1.real && num.img == num1.img) {
             return true;
