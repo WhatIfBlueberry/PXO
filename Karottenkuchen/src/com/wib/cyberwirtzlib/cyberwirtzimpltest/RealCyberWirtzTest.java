@@ -38,10 +38,6 @@ class RealCyberWirtzTest {
 
     // a * 3.2
 
-    @org.junit.jupiter.api.BeforeEach
-    void setUp() {
-    }
-
     @org.junit.jupiter.api.Test
     void add() {
         Assertions.assertTrue(Arrays.deepEquals(real.add(m1,m2).getArray(), new Double[][] {{2.0,4.0},{10.0,12.0}}));
@@ -49,10 +45,18 @@ class RealCyberWirtzTest {
 
     @org.junit.jupiter.api.Test
     void multiply() {
+        Assertions.assertTrue(Arrays.deepEquals(real.multiply(m1,m2).getArray(), new Double[][] {{11.0, 14.0}, {35.0, 46.0}}));
     }
 
     @org.junit.jupiter.api.Test
-    void testMultiply() {
+    void multiplyMany() {
+        System.out.println(real.multiply(m3,m4.transpose(),m5));
+        Assertions.assertTrue(Arrays.deepEquals(real.multiply(m3,m4.transpose(), m5).getArray(), new Double[][] {{217.0, 233.0, 320.0, 146.0}, {436.0, 461.0, 641.0, 281.0}}));
+    }
+
+    @org.junit.jupiter.api.Test
+    void multiplyScalar() {
+        Assertions.assertTrue(Arrays.deepEquals(real.multiply(3.2, m1).getArray(), new Double[][] {{3.2, 6.4},{16.0, 19.2}}));
     }
 
     @org.junit.jupiter.api.Test

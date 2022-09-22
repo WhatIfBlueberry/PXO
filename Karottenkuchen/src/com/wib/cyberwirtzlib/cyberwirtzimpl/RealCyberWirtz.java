@@ -1,5 +1,6 @@
 package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
+import com.wib.cyberwirtzlib.math.matrix.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.matrix.Matrix;
 import com.wib.cyberwirtzlib.math.matrix.iMatrix;
 
@@ -29,18 +30,21 @@ public class RealCyberWirtz extends CyberWirtz {
 
     @Override
     public Matrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
+        validateMultiplication(m1, m2);
         Matrix mat1 = ((Matrix) m1);
         Matrix mat2 = ((Matrix) m2);
-        if (!matricesCanBeMultiplied(mat1, mat2)) {
-            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
-        }
         Double[][] ret = new Matrix(mat1.getRowSize(), mat2.getFirstColumnSize()).getArray();
         for (int i = 0; i < mat1.getRowSize(); i++) {
             for (int j = 0; j < mat2.getFirstColumnSize(); j++) {
                 for (int k = 0; k < mat1.getFirstColumnSize(); k++) {
-                    ret[i][j] += mat1.getCell(i, k) * mat2.getCell(k, j);
+                    double value = mat1.getCell(i, k) * mat2.getCell(k, j);
+                    ret[i][j] += (double)Math.round(value * 100000d) / 100000d;
                 }
             }
+        }
+        boolean argumentsLeft = args.length > 0;
+        if (argumentsLeft) {
+            return multiply(new Matrix(ret), args[0], Arrays.copyOfRange(args, 1, args.length));
         }
         return new Matrix(ret);
     }
@@ -53,7 +57,8 @@ public class RealCyberWirtz extends CyberWirtz {
         Double[][] ret = new Matrix(rowSize, columnSize).getArray();
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
-                ret[row][column] = mat1.getCell(row, column) * scalar;
+                double value = mat1.getCell(row, column) * scalar;
+                ret[row][column] = (double)Math.round(value * 100000d) / 100000d;
             }
         }
         return new Matrix(ret);

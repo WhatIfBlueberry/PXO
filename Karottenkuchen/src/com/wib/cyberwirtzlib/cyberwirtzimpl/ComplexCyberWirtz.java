@@ -52,7 +52,7 @@ public class ComplexCyberWirtz extends CyberWirtz {
     }
 
     @Override
-    public iMatrix multiply(double scalar, iMatrix m1) {
+    public ComplexMatrix multiply(double scalar, iMatrix m1) {
         ComplexMatrix mat1 = ((ComplexMatrix) m1);
         ComplexNumber scal = new ComplexNumber(scalar, 0);
         int rowSize = mat1.getRowSize();

@@ -42,11 +42,6 @@ class ComplexCyberWirtzTest {
 
     // matrixc2 * 3.2
 
-    @BeforeEach
-    void setUp() {
-
-    }
-
     @Test
     void add() {
 

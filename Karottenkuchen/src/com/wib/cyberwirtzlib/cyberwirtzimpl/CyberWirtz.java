@@ -3,10 +3,12 @@ package com.wib.cyberwirtzlib.cyberwirtzimpl;
 import com.wib.cyberwirtzlib.math.matrix.iMatrix;
 
 /**
- * In memory of Prof. Dr. Wirtz LA1
- * {@link #add(iMatrix, iMatrix, iMatrix...) adding matrices}
- * {@link #multiply(iMatrix, iMatrix, iMatrix...) multiplying matrices}
- * {@link #calculateExpectedValue(iMatrix, iMatrix) calculating the expected value}
+ * Accuracy of 5 Digits for double values <br>
+ * {@link #add(iMatrix, iMatrix, iMatrix...) adding matrices} <br>
+ * {@link #multiply(iMatrix, iMatrix, iMatrix...) multiplying matrices} <br>
+ * {@link #calculateExpectedValue(iMatrix, iMatrix) calculating the expected value} <br>
+ * In memory of Prof. Dr. Wirtz LA1 <br>
+ * ~ Zeichen sind nur Schall und Rauch!
  */
 public abstract class CyberWirtz {
 
@@ -96,8 +98,7 @@ public abstract class CyberWirtz {
      * @param m2
      */
     protected boolean matricesCanBeMultiplied(iMatrix m1, iMatrix m2) {
-        boolean rowAndColumnHaveValidDimension = m1.getRowSize() == m2.getFirstColumnSize();
         boolean columnAndRowHaveValidDimension = m1.getFirstColumnSize() == m2.getRowSize();
-        return rowAndColumnHaveValidDimension && columnAndRowHaveValidDimension;
+        return columnAndRowHaveValidDimension;
     }
 }
