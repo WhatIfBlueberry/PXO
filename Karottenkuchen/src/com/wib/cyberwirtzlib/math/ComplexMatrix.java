@@ -25,7 +25,13 @@ public class ComplexMatrix implements iMatrix {
 
     @Override
     public ComplexMatrix transpose() {
-        return null;
+        ComplexNumber[][] ret = new ComplexNumber[this.getFirstColumnSize()][this.getRowSize()];
+        for (int column = 0; column < getFirstColumnSize(); column++) {
+            for (int row = 0; row < getRowSize(); row++) {
+                ret[column][row] = this.matrix[row][column];
+            }
+        }
+        return new ComplexMatrix(ret);
     }
 
     @Override

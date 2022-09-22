@@ -15,5 +15,4 @@ public interface iMatrix {
     public int getFirstColumnSize();
 
     public List<Integer> getAllColumnSizes();
-
 }
