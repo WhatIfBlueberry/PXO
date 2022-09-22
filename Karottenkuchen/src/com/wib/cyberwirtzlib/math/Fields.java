@@ -1,8 +1,8 @@
 package com.wib.cyberwirtzlib.math;
 
-import com.wib.cyberwirtzlib.ComplexCyberWirtz;
-import com.wib.cyberwirtzlib.CyberWirtz;
-import com.wib.cyberwirtzlib.RealCyberWirtz;
+import com.wib.cyberwirtzlib.cyberwirtzimpl.ComplexCyberWirtz;
+import com.wib.cyberwirtzlib.cyberwirtzimpl.CyberWirtz;
+import com.wib.cyberwirtzlib.cyberwirtzimpl.RealCyberWirtz;
 
 public enum Fields {
     REAL(new RealCyberWirtz()),

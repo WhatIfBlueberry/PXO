@@ -1,6 +1,6 @@
-import com.wib.cyberwirtzlib.ComplexCyberWirtz;
-import com.wib.cyberwirtzlib.CyberWirtz;
-import com.wib.cyberwirtzlib.RealCyberWirtz;
+import com.wib.cyberwirtzlib.cyberwirtzimpl.ComplexCyberWirtz;
+import com.wib.cyberwirtzlib.cyberwirtzimpl.CyberWirtz;
+import com.wib.cyberwirtzlib.cyberwirtzimpl.RealCyberWirtz;
 import com.wib.cyberwirtzlib.math.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.ComplexNumber;
 import com.wib.cyberwirtzlib.math.Matrix;
@@ -67,6 +67,10 @@ public class TestHelper {
 
     private ComplexMatrix getRand() {
         return new ComplexMatrix(2, 2);
+    }
+
+    public void testMultiply() {
+        System.out.println(real.multiply(m1,m2));
     }
 
 

@@ -1,4 +1,4 @@
-package com.wib.cyberwirtzlib;
+package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
 import com.wib.cyberwirtzlib.math.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.ComplexNumber;
@@ -32,6 +32,11 @@ public class ComplexCyberWirtz extends CyberWirtz {
 
     @Override
     public iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
+        return null;
+    }
+
+    @Override
+    public iMatrix multiply(int scalar, iMatrix m1) {
         return null;
     }
 }

@@ -1,4 +1,4 @@
-package com.wib.cyberwirtzlib;
+package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
 import com.wib.cyberwirtzlib.math.iMatrix;
 
@@ -30,6 +30,7 @@ public abstract class CyberWirtz {
      * @return returns product of all matrices in order
      */
     public abstract iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args);
+    public abstract iMatrix multiply(int scalar, iMatrix m1);
 
     /**
      * @param mat    First Matrix

@@ -1,4 +1,4 @@
-package com.wib.cyberwirtzlib;
+package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
 import com.wib.cyberwirtzlib.math.Fields;
 
