@@ -69,7 +69,7 @@ public class RealCyberWirtz extends CyberWirtz {
         validateExpected(mat, vector);
         Matrix mat1 = ((Matrix) mat);
         Matrix vec = ((Matrix) vector);
-        Matrix matrix = multiply(vec, mat1, vector.transpose());
+        Matrix matrix = multiply(vec.transpose(), mat1, vec);
         return matrix.getCell(0,0);
     }
 

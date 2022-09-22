@@ -84,7 +84,7 @@ public class ComplexCyberWirtz extends CyberWirtz {
         validateExpected(mat, vector);
         ComplexMatrix mat1 = ((ComplexMatrix) mat);
         ComplexMatrix vec = ((ComplexMatrix) vector);
-        ComplexMatrix matrix = multiply(vec, mat1, vector.transpose());
+        ComplexMatrix matrix = multiply(vec.transpose(), mat1, vec);
         return matrix.getCell(0,0);
     }
 
