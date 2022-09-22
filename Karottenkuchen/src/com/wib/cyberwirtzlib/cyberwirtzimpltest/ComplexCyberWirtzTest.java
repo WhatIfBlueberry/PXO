@@ -22,10 +22,13 @@ class ComplexCyberWirtzTest {
     private ComplexNumber[][] second = new ComplexNumber[][]{{c3, c1}, {c2, c4}};
     private ComplexNumber[][] third = new ComplexNumber[][]{{c2,c3}, {c4, c1}};
 
+    private ComplexNumber[][] vector = new ComplexNumber[][]{{c2}, {c3}};
+
     // ComplexNumber Matrices
     private ComplexMatrix a = new ComplexMatrix(first);
     private ComplexMatrix b = new ComplexMatrix(second);
     private ComplexMatrix c = new ComplexMatrix(third);
+    private ComplexMatrix v = new ComplexMatrix(vector);
 
     // Algorithms
     private CyberWirtz complex = new ComplexCyberWirtz();
@@ -71,6 +74,9 @@ class ComplexCyberWirtzTest {
     ComplexNumber three3333 = new ComplexNumber(12.8,6.4);
     ComplexNumber four4444 = new ComplexNumber(3.2,3.2);
     ComplexMatrix fifthMatrix = new ComplexMatrix(new ComplexNumber[][] {{one1111, two2222}, {three3333, four4444}});
+
+    // expectedValue
+    ComplexNumber lastMatrix = new ComplexNumber(205,200);
 
     @Test
     void add() {
@@ -132,6 +138,10 @@ class ComplexCyberWirtzTest {
 
     @Test
     void calculateExpectedValue() {
-
+        ComplexNumber actual = (ComplexNumber) complex.calculateExpectedValue(a, c);
+        ComplexNumber expected = lastMatrix;
+        System.out.println(actual);
+        System.out.println(expected);
+        Assertions.assertTrue(actual.equals(expected));
     }
 }
