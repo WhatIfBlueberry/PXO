@@ -1,7 +1,5 @@
 package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
-import com.wib.cyberwirtzlib.math.ComplexMatrix;
-import com.wib.cyberwirtzlib.math.ComplexNumber;
 import com.wib.cyberwirtzlib.math.Matrix;
 import com.wib.cyberwirtzlib.math.iMatrix;
 
@@ -19,7 +17,7 @@ public class RealCyberWirtz extends CyberWirtz {
         Double[][] ret = new Double[rowSize][columnSize];
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
-                ret[row][column] = mat1.manipulate(row, column) + mat2.manipulate(row, column);
+                ret[row][column] = mat1.getCell(row, column) + mat2.getCell(row, column);
             }
         }
         boolean argumentsLeft = args.length > 0;
@@ -36,11 +34,11 @@ public class RealCyberWirtz extends CyberWirtz {
         if (!matricesCanBeMultiplied(mat1, mat2)) {
             throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
         }
-        Double[][] ret = initArray(mat1.getRowSize(), mat2.getFirstColumnSize());
+        Double[][] ret = new Matrix(mat1.getRowSize(), mat2.getFirstColumnSize()).getArray();
         for (int i = 0; i < mat1.getRowSize(); i++) {
             for (int j = 0; j < mat2.getFirstColumnSize(); j++) {
                 for (int k = 0; k < mat1.getFirstColumnSize(); k++) {
-                    ret[i][j] += mat1.manipulate(i, k) * mat2.manipulate(k, j);
+                    ret[i][j] += mat1.getCell(i, k) * mat2.getCell(k, j);
                 }
             }
         }
@@ -52,10 +50,10 @@ public class RealCyberWirtz extends CyberWirtz {
         Matrix mat1 = ((Matrix) m1);
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
-        Double[][] ret = initArray(rowSize, columnSize);
+        Double[][] ret = new Matrix(rowSize, columnSize).getArray();
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
-                ret[row][column] = mat1.manipulate(row, column) * scalar;
+                ret[row][column] = mat1.getCell(row, column) * scalar;
             }
         }
         return new Matrix(ret);
@@ -63,7 +61,7 @@ public class RealCyberWirtz extends CyberWirtz {
 
     @Override
     public Double calculateExpectedValue(iMatrix mat, iMatrix vector) {
-        return null;//multiply(vector.transpose(), mat, vector);
+        validateExpected(mat, vector);
     }
 
     @Override
@@ -87,15 +85,5 @@ public class RealCyberWirtz extends CyberWirtz {
         if (!(m1 instanceof Matrix) || !(m2 instanceof Matrix)) {
             throw new IllegalArgumentException("Invalid Matrices! Check if iMatrix is instance of Matrix");
         }
-    }
-
-    private Double[][] initArray(int rowSize, int colSize) {
-        Double[][] ret = new Double[rowSize][colSize];
-        for (int i = 0; i < rowSize; i++) {
-            for (int j = 0; j < colSize; j++) {
-                ret[i][j] = 0.0;
-            }
-        }
-        return ret;
     }
 }

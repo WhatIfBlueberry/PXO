@@ -46,8 +46,13 @@ public class Matrix implements iMatrix {
      * @param column
      * @return return contents of matrix at row / column
      */
-    public Double manipulate(int row, int column) {
+    public Double getCell(int row, int column) {
         return this.matrix[row][column];
+    }
+
+    @Override
+    public Double[][] getArray() {
+        return this.matrix;
     }
 
     @Override

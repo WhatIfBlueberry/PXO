@@ -18,7 +18,7 @@ public class ComplexCyberWirtz extends CyberWirtz {
         ComplexNumber[][] ret = new ComplexNumber[rowSize][columnSize];
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
-                ret[row][column] = mat1.manipulate(row, column).addComp(mat2.manipulate(row, column));
+                ret[row][column] = mat1.getCell(row, column).addComp(mat2.getCell(row, column));
             }
         }
         boolean argumentsLeft = args.length > 0;
@@ -36,11 +36,11 @@ public class ComplexCyberWirtz extends CyberWirtz {
         int rowSize = mat1.getRowSize();
         int columnSize1 = mat1.getFirstColumnSize();
         int columnSize2 = mat2.getFirstColumnSize();
-        ComplexNumber[][] ret = initArray(rowSize, columnSize2);
+        ComplexNumber[][] ret = new ComplexMatrix(rowSize, columnSize2).getArray();
         for (int row = 0; row < rowSize; row++) {
             for (int column2 = 0; column2 < columnSize2; column2++) {
                 for (int column1 = 0; column1 < columnSize1; column1++) {
-                    ret[row][column2] = ret[row][column2].addComp(mat1.manipulate(row, column1).multiplyComp(mat2.manipulate(column1, column2)));
+                    ret[row][column2] = ret[row][column2].addComp(mat1.getCell(row, column1).multiplyComp(mat2.getCell(column1, column2)));
                 }
             }
         }
@@ -57,10 +57,10 @@ public class ComplexCyberWirtz extends CyberWirtz {
         ComplexNumber scal = new ComplexNumber(scalar, 0);
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
-        ComplexNumber[][] ret = initArray(rowSize, columnSize);
+        ComplexNumber[][] ret = new ComplexMatrix(rowSize,columnSize).getArray();
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
-                ret[row][column] = mat1.manipulate(row, column).multiplyComp(scal);
+                ret[row][column] = mat1.getCell(row, column).multiplyComp(scal);
             }
         }
         return new ComplexMatrix(ret);
@@ -70,10 +70,10 @@ public class ComplexCyberWirtz extends CyberWirtz {
         ComplexMatrix mat1 = ((ComplexMatrix) m1);
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
-        ComplexNumber[][] ret = initArray(rowSize, columnSize);
+        ComplexNumber[][] ret = new ComplexMatrix(rowSize,columnSize).getArray();
         for (int row = 0; row < rowSize; row++) {
             for (int column = 0; column < columnSize; column++) {
-                ret[row][column] = mat1.manipulate(row, column).multiplyComp(scalar);
+                ret[row][column] = mat1.getCell(row, column).multiplyComp(scalar);
             }
         }
         return new ComplexMatrix(ret);
@@ -106,15 +106,5 @@ public class ComplexCyberWirtz extends CyberWirtz {
         if (!(m1 instanceof ComplexMatrix) || !(m2 instanceof ComplexMatrix)) {
             throw new IllegalArgumentException("Invalid Matrices! Check if iMatrix is instance of Matrix");
         }
-    }
-
-    private ComplexNumber[][] initArray(int rowSize, int colSize) {
-        ComplexNumber[][] ret = new ComplexNumber[rowSize][colSize];
-        for (int i = 0; i < rowSize; i++) {
-            for (int j = 0; j < colSize; j++) {
-                ret[i][j] = new ComplexNumber(0, 0);
-            }
-        }
-        return ret;
     }
 }

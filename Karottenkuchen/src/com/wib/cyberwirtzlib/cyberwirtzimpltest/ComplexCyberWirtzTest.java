@@ -50,8 +50,9 @@ class ComplexCyberWirtzTest {
 
     }
 
-    @ParameterizedTest
+    @Test
     void add() {
+
     }
 
     @Test

@@ -29,8 +29,13 @@ public class ComplexMatrix implements iMatrix {
     }
 
     @Override
-    public ComplexNumber manipulate(int row, int column) {
+    public ComplexNumber getCell(int row, int column) {
         return this.matrix[row][column];
+    }
+
+    @Override
+    public ComplexNumber[][] getArray() {
+        return this.matrix;
     }
 
 

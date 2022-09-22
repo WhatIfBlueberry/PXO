@@ -3,6 +3,9 @@ package com.wib.cyberwirtzlib.cyberwirtzimpltest;
 import com.wib.cyberwirtzlib.cyberwirtzimpl.CyberWirtz;
 import com.wib.cyberwirtzlib.cyberwirtzimpl.RealCyberWirtz;
 import com.wib.cyberwirtzlib.math.Matrix;
+import org.junit.jupiter.api.Assertions;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,6 +46,7 @@ class RealCyberWirtzTest {
 
     @org.junit.jupiter.api.Test
     void add() {
+        Assertions.assertTrue(Arrays.deepEquals(real.add(m1,m2).getArray(), new Double[][] {{2.0,4.0},{10.0,12.0}}));
     }
 
     @org.junit.jupiter.api.Test

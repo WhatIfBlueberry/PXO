@@ -4,9 +4,11 @@ import java.util.List;
 
 public interface iMatrix {
 
-    public Matrix transpose();
+    public iMatrix transpose();
 
-    public Object manipulate(int row, int column);
+    public Object getCell(int row, int column);
+
+    public Object[][] getArray();
 
     public int getRowSize();
 
