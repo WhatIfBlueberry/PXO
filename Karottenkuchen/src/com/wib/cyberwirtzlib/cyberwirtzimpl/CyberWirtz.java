@@ -30,6 +30,14 @@ public abstract class CyberWirtz {
      * @return returns product of all matrices in order
      */
     public abstract iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args);
+
+    /**
+     * multiplies scalar with any iMatrix m1
+     *
+     * @param scalar
+     * @param m1
+     * @return
+     */
     public abstract iMatrix multiply(int scalar, iMatrix m1);
 
     /**
@@ -37,9 +45,29 @@ public abstract class CyberWirtz {
      * @param vector Second Vector
      * @return returns expected value as scalar. Applies V'MV
      */
-    public iMatrix calculateExpectedValue(iMatrix mat, iMatrix vector) {
-        return multiply(vector.transpose(), mat, vector);
-    }
+    public abstract Object calculateExpectedValue(iMatrix mat, iMatrix vector);
+
+    /**
+     * throws exception if matrices are of wrong type or have invalid column / rows
+     * @param m1
+     * @param m2
+     */
+    protected abstract void validateAddition(iMatrix m1, iMatrix m2);
+
+    /**
+     * throws exception if matrices are of wrong type or have invalid column / rows
+     * @param m1
+     * @param m2
+     */
+    protected abstract void validateMultiplikation(iMatrix m1, iMatrix m2);
+
+    /**
+     * checks if both matrices are of desired Type, throws Exception if not.
+     * @param m1
+     * @param m2
+     * @return
+     */
+    protected abstract void checkInstance(iMatrix m1, iMatrix m2);
 
     /**
      * checks row and column size. To be able to add them, both need to be equal.

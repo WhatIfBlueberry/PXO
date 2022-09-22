@@ -10,11 +10,9 @@ public class ComplexCyberWirtz extends CyberWirtz {
 
     @Override
     public iMatrix add(iMatrix m1, iMatrix m2, iMatrix... args) {
+        validateAddition(m1, m2);
         ComplexMatrix mat1 = ((ComplexMatrix) m1);
         ComplexMatrix mat2 = ((ComplexMatrix) m2);
-        if (!matricesCanBeAdded(m1, m2)) {
-            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
-        }
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
         ComplexNumber[][] ret = new ComplexNumber[rowSize][columnSize];
@@ -38,5 +36,33 @@ public class ComplexCyberWirtz extends CyberWirtz {
     @Override
     public iMatrix multiply(int scalar, iMatrix m1) {
         return null;
+    }
+
+    @Override
+    public ComplexNumber calculateExpectedValue(iMatrix mat, iMatrix vector) {
+        return null; //multiply(vector.transpose(), mat, vector);
+    }
+
+    @Override
+    protected void validateAddition(iMatrix m1, iMatrix m2) {
+        checkInstance(m1, m2);
+        if (!matricesCanBeAdded(m1, m2)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+    }
+
+    @Override
+    protected void validateMultiplikation(iMatrix m1, iMatrix m2) {
+        checkInstance(m1, m2);
+        if (!matricesCanBeMultiplied(m1, m2)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+    }
+
+    @Override
+    protected void checkInstance(iMatrix m1, iMatrix m2) {
+        if (!(m1 instanceof ComplexMatrix) || !(m2 instanceof ComplexMatrix)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check if iMatrix is instance of Matrix");
+        }
     }
 }

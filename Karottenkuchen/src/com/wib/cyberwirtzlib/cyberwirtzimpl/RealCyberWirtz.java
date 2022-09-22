@@ -8,12 +8,10 @@ import java.util.Arrays;
 public class RealCyberWirtz extends CyberWirtz {
 
     @Override
-    public iMatrix add(iMatrix m1, iMatrix m2, iMatrix... args) {
+    public Matrix add(iMatrix m1, iMatrix m2, iMatrix... args) {
+        validateAddition(m1, m2);
         Matrix mat1 = ((Matrix) m1);
         Matrix mat2 = ((Matrix) m2);
-        if (!matricesCanBeAdded(m1, m2)) {
-            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
-        }
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
         Double[][] ret = new Double[rowSize][columnSize];
@@ -30,7 +28,7 @@ public class RealCyberWirtz extends CyberWirtz {
     }
 
     @Override
-    public iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
+    public Matrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
         Matrix mat1 = ((Matrix) m1);
         Matrix mat2 = ((Matrix) m2);
         if (!matricesCanBeMultiplied(mat1, mat2)) {
@@ -47,6 +45,39 @@ public class RealCyberWirtz extends CyberWirtz {
         return new Matrix(ret);
     }
 
+    @Override
+    public Matrix multiply(int scalar, iMatrix m1) {
+        return null;
+    }
+
+    @Override
+    public Double calculateExpectedValue(iMatrix mat, iMatrix vector) {
+        return null;//multiply(vector.transpose(), mat, vector);
+    }
+
+    @Override
+    protected void validateAddition(iMatrix m1, iMatrix m2) {
+        checkInstance(m1, m2);
+        if (!matricesCanBeAdded(m1, m2)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+    }
+
+    @Override
+    protected void validateMultiplikation(iMatrix m1, iMatrix m2) {
+        checkInstance(m1, m2);
+        if (!matricesCanBeMultiplied(m1, m2)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+    }
+
+    @Override
+    protected void checkInstance(iMatrix m1, iMatrix m2) {
+        if (!(m1 instanceof Matrix) || !(m2 instanceof Matrix)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check if iMatrix is instance of Matrix");
+        }
+    }
+
     private Double[][] initArray(int rowSize, int colSize) {
         Double[][] ret = new Double[rowSize][colSize];
         for (int i = 0; i < rowSize; i++) {
@@ -55,10 +86,5 @@ public class RealCyberWirtz extends CyberWirtz {
             }
         }
         return ret;
-    }
-
-    @Override
-    public iMatrix multiply(int scalar, iMatrix m1) {
-        return null;
     }
 }
