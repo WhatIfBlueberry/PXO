@@ -2,12 +2,10 @@ package com.wib.cyberwirtzlib.cyberwirtzimpltest;
 
 import com.wib.cyberwirtzlib.cyberwirtzimpl.CyberWirtz;
 import com.wib.cyberwirtzlib.cyberwirtzimpl.RealCyberWirtz;
-import com.wib.cyberwirtzlib.math.Matrix;
+import com.wib.cyberwirtzlib.math.matrix.Matrix;
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class RealCyberWirtzTest {
 

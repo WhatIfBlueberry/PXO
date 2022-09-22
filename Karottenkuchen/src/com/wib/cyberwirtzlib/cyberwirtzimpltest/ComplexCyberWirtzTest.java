@@ -2,13 +2,10 @@ package com.wib.cyberwirtzlib.cyberwirtzimpltest;
 
 import com.wib.cyberwirtzlib.cyberwirtzimpl.ComplexCyberWirtz;
 import com.wib.cyberwirtzlib.cyberwirtzimpl.CyberWirtz;
-import com.wib.cyberwirtzlib.cyberwirtzimpl.RealCyberWirtz;
-import com.wib.cyberwirtzlib.math.ComplexMatrix;
+import com.wib.cyberwirtzlib.math.matrix.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.ComplexNumber;
-import com.wib.cyberwirtzlib.math.Matrix;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 
 class ComplexCyberWirtzTest {
 

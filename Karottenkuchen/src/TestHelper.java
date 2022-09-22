@@ -1,9 +1,9 @@
 import com.wib.cyberwirtzlib.cyberwirtzimpl.ComplexCyberWirtz;
 import com.wib.cyberwirtzlib.cyberwirtzimpl.CyberWirtz;
 import com.wib.cyberwirtzlib.cyberwirtzimpl.RealCyberWirtz;
-import com.wib.cyberwirtzlib.math.ComplexMatrix;
+import com.wib.cyberwirtzlib.math.matrix.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.ComplexNumber;
-import com.wib.cyberwirtzlib.math.Matrix;
+import com.wib.cyberwirtzlib.math.matrix.Matrix;
 
 public class TestHelper {
 
