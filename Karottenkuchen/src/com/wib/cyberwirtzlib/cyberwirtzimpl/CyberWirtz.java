@@ -62,6 +62,6 @@ public abstract class CyberWirtz {
     protected boolean matricesCanBeMultiplied(iMatrix m1, iMatrix m2) {
         boolean rowAndColumnHaveValidDimension = m1.getRowSize() == m2.getFirstColumnSize();
         boolean columnAndRowHaveValidDimension = m1.getFirstColumnSize() == m2.getRowSize();
-        return rowAndColumnHaveValidDimension || columnAndRowHaveValidDimension;
+        return rowAndColumnHaveValidDimension && columnAndRowHaveValidDimension;
     }
 }

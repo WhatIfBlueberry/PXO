@@ -10,9 +10,16 @@ public class Matrix implements iMatrix {
         this.matrix = matrix;
     }
 
+    public Matrix(int row, int col, boolean rand) {
+        super();
+        if (rand) {
+            fillMatrixRandom(row, col);
+        }
+    }
+
     public Matrix(int row, int col) {
         this.matrix = new Double[row][col];
-        fillMatrixRandom(row, col);
+        fillMatrixZeroes(row, col);
     }
 
     protected void fillMatrixRandom(int rowInput, int colInput) {
@@ -20,6 +27,15 @@ public class Matrix implements iMatrix {
         for (int row = 0; row < rowInput; row++) {
             for (int col = 0; col < colInput; col++) {
                 this.matrix[row][col] = Math.random();
+            }
+        }
+    }
+
+    protected void fillMatrixZeroes(int rowInput, int colInput) {
+        this.matrix = new Double[rowInput][colInput];
+        for (int row = 0; row < rowInput; row++) {
+            for (int col = 0; col < colInput; col++) {
+                this.matrix[row][col] = 0.0;
             }
         }
     }

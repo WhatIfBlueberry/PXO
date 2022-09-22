@@ -33,7 +33,10 @@ public class RealCyberWirtz extends CyberWirtz {
     public iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
         Matrix mat1 = ((Matrix) m1);
         Matrix mat2 = ((Matrix) m2);
-        Double[][] ret = new Double[mat1.getRowSize()][mat2.getFirstColumnSize()];
+        if (!matricesCanBeMultiplied(mat1, mat2)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+        Double[][] ret = initArray(mat1.getRowSize(), mat2.getFirstColumnSize());
         for (int i = 0; i < mat1.getRowSize(); i++) {
             for (int j = 0; j < mat2.getFirstColumnSize(); j++) {
                 for (int k = 0; k < mat1.getFirstColumnSize(); k++) {
@@ -42,6 +45,16 @@ public class RealCyberWirtz extends CyberWirtz {
             }
         }
         return new Matrix(ret);
+    }
+
+    private Double[][] initArray(int rowSize, int colSize) {
+        Double[][] ret = new Double[rowSize][colSize];
+        for (int i = 0; i < rowSize; i++) {
+            for (int j = 0; j < colSize; j++) {
+                ret[i][j] = 0.0;
+            }
+        }
+        return ret;
     }
 
     @Override

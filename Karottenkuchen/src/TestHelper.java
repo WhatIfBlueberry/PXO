@@ -7,8 +7,8 @@ import com.wib.cyberwirtzlib.math.Matrix;
 
 public class TestHelper {
 
-    private Double[][] a = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 7.0}};
-    private Double[][] b = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 7.0, 1.0}};
+    private Double[][] a = {{1.0, 2.0}, {5.0, 6.0}};
+    private Double[][] b = {{1.0, 2.0}, {5.0, 6.0}};
     private Double[][] c = {{1.0, 2.0, 3.0, 4.0}, {5.0, 6.0, 3.0, 7.0}};
     private Double[][] d = {{1.0, 2.0, 2.0, 4.0}, {5.0, 4.0, 7.0, 1.0}};
     private Double[][] f = {{1.0, 3.0, 2.0, 4.0}, {5.0, 4.0, 7.0, 1.0}};
