@@ -40,7 +40,8 @@ public class ComplexCyberWirtz extends CyberWirtz {
         for (int row = 0; row < rowSize; row++) {
             for (int column2 = 0; column2 < columnSize2; column2++) {
                 for (int column1 = 0; column1 < columnSize1; column1++) {
-                    ret[row][column2] = ret[row][column2].addComp(mat1.getCell(row, column1).multiplyComp(mat2.getCell(column1, column2)));
+                    ComplexNumber value = mat1.getCell(row, column1).multiplyComp(mat2.getCell(column1, column2));
+                    ret[row][column2] = ret[row][column2].addComp(value);
                 }
             }
         }
