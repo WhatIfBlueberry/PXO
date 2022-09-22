@@ -24,7 +24,7 @@ public class ComplexMatrix implements iMatrix {
     }
 
     @Override
-    public Matrix transpose() {
+    public ComplexMatrix transpose() {
         return null;
     }
 
