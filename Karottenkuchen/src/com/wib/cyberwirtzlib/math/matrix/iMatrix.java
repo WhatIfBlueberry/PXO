@@ -1,4 +1,4 @@
-package com.wib.cyberwirtzlib.math;
+package com.wib.cyberwirtzlib.math.matrix;
 
 import java.util.List;
 

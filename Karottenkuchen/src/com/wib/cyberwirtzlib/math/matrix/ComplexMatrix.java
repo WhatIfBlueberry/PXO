@@ -1,4 +1,6 @@
-package com.wib.cyberwirtzlib.math;
+package com.wib.cyberwirtzlib.math.matrix;
+
+import com.wib.cyberwirtzlib.math.ComplexNumber;
 
 import java.util.ArrayList;
 import java.util.List;

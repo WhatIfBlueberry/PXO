@@ -1,9 +1,8 @@
 package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
-import com.wib.cyberwirtzlib.math.ComplexMatrix;
+import com.wib.cyberwirtzlib.math.matrix.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.ComplexNumber;
-import com.wib.cyberwirtzlib.math.Matrix;
-import com.wib.cyberwirtzlib.math.iMatrix;
+import com.wib.cyberwirtzlib.math.matrix.iMatrix;
 
 import java.util.Arrays;
 
