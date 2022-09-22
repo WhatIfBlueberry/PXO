@@ -59,7 +59,7 @@ public abstract class CyberWirtz {
      * @param m1
      * @param m2
      */
-    protected abstract void validateMultiplikation(iMatrix m1, iMatrix m2);
+    protected abstract void validateMultiplication(iMatrix m1, iMatrix m2);
 
     /**
      * checks if both matrices are of desired Type, throws Exception if not.

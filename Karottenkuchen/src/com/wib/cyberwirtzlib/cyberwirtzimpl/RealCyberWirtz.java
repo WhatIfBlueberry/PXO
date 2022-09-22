@@ -64,7 +64,7 @@ public class RealCyberWirtz extends CyberWirtz {
     }
 
     @Override
-    protected void validateMultiplikation(iMatrix m1, iMatrix m2) {
+    protected void validateMultiplication(iMatrix m1, iMatrix m2) {
         checkInstance(m1, m2);
         if (!matricesCanBeMultiplied(m1, m2)) {
             throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");

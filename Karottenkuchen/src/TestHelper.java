@@ -24,7 +24,9 @@ public class TestHelper {
     private ComplexNumber c3 = new ComplexNumber(4, 2);
     private ComplexNumber c4 = new ComplexNumber(1, 1);
     private ComplexNumber[][] matrix = new ComplexNumber[][]{{c1, c2}, {c3, c4}};
-    private ComplexMatrix matrix2 = new ComplexMatrix(matrix);
+    private ComplexNumber[][] anotherMatrix = new ComplexNumber[][] {{c3,c1}, {c2,c4}};
+    private ComplexMatrix matrixc2 = new ComplexMatrix(matrix);
+    private ComplexMatrix matrixc3 = new ComplexMatrix(anotherMatrix);
 
     private CyberWirtz real = new RealCyberWirtz();
     private CyberWirtz complex = new ComplexCyberWirtz();
@@ -49,7 +51,7 @@ public class TestHelper {
 
     public void addTwoComplexMatrices() {
         try {
-            complex.add(matrix2, new ComplexMatrix(2, 2));
+            complex.add(matrixc2, new ComplexMatrix(2, 2));
         } catch (Exception e) {
             System.out.println("Test failed");
         }
@@ -71,6 +73,10 @@ public class TestHelper {
 
     public void testMultiply() {
         System.out.println(real.multiply(m1,m2));
+    }
+
+    public void multiplyComplex() {
+        System.out.println(complex.multiply(matrixc2, matrixc3));
     }
 
 
