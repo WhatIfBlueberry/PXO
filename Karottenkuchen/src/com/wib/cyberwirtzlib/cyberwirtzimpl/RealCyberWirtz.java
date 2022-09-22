@@ -1,5 +1,7 @@
 package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
+import com.wib.cyberwirtzlib.math.ComplexMatrix;
+import com.wib.cyberwirtzlib.math.ComplexNumber;
 import com.wib.cyberwirtzlib.math.Matrix;
 import com.wib.cyberwirtzlib.math.iMatrix;
 
@@ -46,8 +48,17 @@ public class RealCyberWirtz extends CyberWirtz {
     }
 
     @Override
-    public Matrix multiply(int scalar, iMatrix m1) {
-        return null;
+    public Matrix multiply(double scalar, iMatrix m1) {
+        Matrix mat1 = ((Matrix) m1);
+        int rowSize = mat1.getRowSize();
+        int columnSize = mat1.getFirstColumnSize();
+        Double[][] ret = initArray(rowSize, columnSize);
+        for (int row = 0; row < rowSize; row++) {
+            for (int column = 0; column < columnSize; column++) {
+                ret[row][column] = mat1.manipulate(row, column) * scalar;
+            }
+        }
+        return new Matrix(ret);
     }
 
     @Override

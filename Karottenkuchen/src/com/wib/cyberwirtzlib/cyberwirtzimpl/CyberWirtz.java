@@ -38,7 +38,7 @@ public abstract class CyberWirtz {
      * @param m1
      * @return
      */
-    public abstract iMatrix multiply(int scalar, iMatrix m1);
+    public abstract iMatrix multiply(double scalar, iMatrix m1);
 
     /**
      * @param mat    First Matrix
