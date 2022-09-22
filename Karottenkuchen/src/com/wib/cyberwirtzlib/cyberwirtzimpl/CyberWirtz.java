@@ -62,11 +62,19 @@ public abstract class CyberWirtz {
     protected abstract void validateMultiplication(iMatrix m1, iMatrix m2);
 
     /**
+     * throws exception if expected value cannot be calculated from input param
+     * @param mat
+     * @param vector
+     */
+    protected abstract void validateExpected(iMatrix mat, iMatrix vector);
+
+    /**
      * checks if both matrices are of desired Type, throws Exception if not.
      * @param m1
      * @param m2
      * @return
      */
+
     protected abstract void checkInstance(iMatrix m1, iMatrix m2);
 
     /**

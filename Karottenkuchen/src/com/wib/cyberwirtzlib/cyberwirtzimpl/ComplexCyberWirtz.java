@@ -2,6 +2,7 @@ package com.wib.cyberwirtzlib.cyberwirtzimpl;
 
 import com.wib.cyberwirtzlib.math.ComplexMatrix;
 import com.wib.cyberwirtzlib.math.ComplexNumber;
+import com.wib.cyberwirtzlib.math.Matrix;
 import com.wib.cyberwirtzlib.math.iMatrix;
 
 import java.util.Arrays;
@@ -9,7 +10,7 @@ import java.util.Arrays;
 public class ComplexCyberWirtz extends CyberWirtz {
 
     @Override
-    public iMatrix add(iMatrix m1, iMatrix m2, iMatrix... args) {
+    public ComplexMatrix add(iMatrix m1, iMatrix m2, iMatrix... args) {
         validateAddition(m1, m2);
         ComplexMatrix mat1 = ((ComplexMatrix) m1);
         ComplexMatrix mat2 = ((ComplexMatrix) m2);
@@ -29,7 +30,7 @@ public class ComplexCyberWirtz extends CyberWirtz {
     }
 
     @Override
-    public iMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
+    public ComplexMatrix multiply(iMatrix m1, iMatrix m2, iMatrix... args) {
         validateMultiplication(m1, m2);
         ComplexMatrix mat1 = ((ComplexMatrix) m1);
         ComplexMatrix mat2 = ((ComplexMatrix) m2);
@@ -66,7 +67,7 @@ public class ComplexCyberWirtz extends CyberWirtz {
         return new ComplexMatrix(ret);
     }
 
-    public iMatrix multiply(ComplexNumber scalar, iMatrix m1) {
+    public ComplexMatrix multiply(ComplexNumber scalar, iMatrix m1) {
         ComplexMatrix mat1 = ((ComplexMatrix) m1);
         int rowSize = mat1.getRowSize();
         int columnSize = mat1.getFirstColumnSize();
@@ -79,10 +80,24 @@ public class ComplexCyberWirtz extends CyberWirtz {
         return new ComplexMatrix(ret);
     }
 
-
     @Override
     public ComplexNumber calculateExpectedValue(iMatrix mat, iMatrix vector) {
-        return null; //multiply(vector.transpose(), mat, vector);
+        validateExpected(mat, vector);
+        ComplexMatrix mat1 = ((ComplexMatrix) mat);
+        ComplexMatrix vec = ((ComplexMatrix) vector);
+        ComplexMatrix matrix = multiply(vec, mat1, vector.transpose());
+        return matrix.getCell(0,0);
+    }
+
+    @Override
+    protected void validateExpected(iMatrix mat, iMatrix vector) {
+        checkInstance(mat, vector);
+        if (!matricesCanBeMultiplied(mat, vector)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+        if (mat.getRowSize() != mat.getFirstColumnSize()) {
+            throw new IllegalArgumentException("Matrix has to be quadratic");
+        }
     }
 
     @Override

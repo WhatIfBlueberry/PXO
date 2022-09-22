@@ -62,6 +62,20 @@ public class RealCyberWirtz extends CyberWirtz {
     @Override
     public Double calculateExpectedValue(iMatrix mat, iMatrix vector) {
         validateExpected(mat, vector);
+        Matrix mat1 = ((Matrix) mat);
+        Matrix vec = ((Matrix) vector);
+        Matrix matrix = multiply(vec, mat1, vector.transpose());
+        return matrix.getCell(0,0);
+    }
+
+    protected void validateExpected(iMatrix mat, iMatrix vector) {
+        checkInstance(mat, vector);
+        if (!matricesCanBeMultiplied(mat, vector)) {
+            throw new IllegalArgumentException("Invalid Matrices! Check dimensions.");
+        }
+        if (mat.getRowSize() != mat.getFirstColumnSize()) {
+            throw new IllegalArgumentException("Matrix has to be quadratic");
+        }
     }
 
     @Override
